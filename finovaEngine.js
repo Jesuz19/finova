@@ -36,13 +36,13 @@ const patrimonio = ahorros + inversiones;
       ? (ahorros / ingresos) * 100
       : 0;
 
-  return {
-  ingresos,
-  gastos,
-  ahorros,
-  inversiones,
-  disponible,
-  patrimonio,
-  tasaAhorro
-};
+    return {
+    ingresos,
+    gastos,
+    ahorros,
+    inversiones,
+    disponible,
+    patrimonio,
+    tasaAhorro
+  };
 }
