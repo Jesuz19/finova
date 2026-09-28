@@ -1,4 +1,5 @@
 import { calcularFinanzas } from "./finovaEngine.js";
+import { calcularFinovaScore } from "./finovaScore.js";
 
 const movimientos = [
   { tipo: "ingreso", valor: 4200000 },
@@ -8,6 +9,8 @@ const movimientos = [
 ];
 
 const finanzas = calcularFinanzas(movimientos);
+
+const score = calcularFinovaScore(finanzas);
 
 function formatoPesos(valor) {
   return "$" + valor.toLocaleString("es-CO");
@@ -25,4 +28,8 @@ document.querySelector(".saving").textContent =
 document.querySelector(".investment").textContent =
   formatoPesos(finanzas.inversiones);
 
+document.querySelector(".score-number").textContent =
+  score;
+
 console.log("Finova Engine:", finanzas);
+console.log("Finova Score:", score);
