@@ -45,3 +45,4 @@ const patrimonio = ahorros + inversiones;
   patrimonio,
   tasaAhorro
 };
+}
