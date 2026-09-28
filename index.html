@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finova — Dashboard</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f5f7fa;
+  color:#17202a;
+}
+
+.app{
+  max-width:900px;
+  margin:auto;
+  min-height:100vh;
+}
+
+.header{
+  background:white;
+  padding:18px 20px;
+  border-bottom:1px solid #e5e7eb;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:800;
+}
+
+.logo span{
+  color:#16a34a;
+}
+
+.profile{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:#e8f5ed;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  color:#15803d;
+}
+
+.main{
+  padding:20px;
+}
+
+.greeting h1{
+  margin:0;
+  font-size:25px;
+}
+
+.greeting p{
+  margin:6px 0 18px;
+  color:#6b7280;
+}
+
+.balance{
+  background:#123b2a;
+  color:white;
+  border-radius:20px;
+  padding:22px;
+}
+
+.balance-label{
+  font-size:13px;
+  opacity:.8;
+}
+
+.balance-value{
+  font-size:34px;
+  font-weight:800;
+  margin:8px 0;
+}
+
+.balance-sub{
+  font-size:13px;
+  opacity:.8;
+}
+
+.score{
+  margin-top:16px;
+  background:white;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  padding:18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.score h2{
+  margin:0;
+  font-size:17px;
+}
+
+.score p{
+  margin:5px 0 0;
+  color:#6b7280;
+  font-size:13px;
+}
+
+.score-number{
+  font-size:30px;
+  font-weight:800;
+  color:#16a34a;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:16px;
+}
+
+.card{
+  background:white;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  padding:16px;
+}
+
+.card-label{
+  color:#6b7280;
+  font-size:12px;
+}
+
+.card-value{
+  font-size:19px;
+  font-weight:bold;
+  margin-top:7px;
+}
+
+.income{color:#15803d}
+.expense{color:#dc2626}
+.saving{color:#2563eb}
+.investment{color:#7c3aed}
+
+.section{
+  margin-top:24px;
+}
+
+.section h2{
+  font-size:18px;
+  margin-bottom:12px;
+}
+
+.chart{
+  background:white;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  padding:18px;
+}
+
+.chart-line{
+  height:130px;
+  display:flex;
+  align-items:flex-end;
+  gap:10px;
+}
+
+.bar{
+  flex:1;
+  background:#bbf7d0;
+  border-radius:8px 8px 3px 3px;
+}
+
+.bar:nth-child(1){height:35%}
+.bar:nth-child(2){height:48%}
+.bar:nth-child(3){height:42%}
+.bar:nth-child(4){height:63%}
+.bar:nth-child(5){height:58%}
+.bar:nth-child(6){height:76%}
+.bar:nth-child(7){height:88%;background:#16a34a}
+
+.months{
+  display:flex;
+  justify-content:space-between;
+  color:#9ca3af;
+  font-size:10px;
+  margin-top:8px;
+}
+
+.goal{
+  background:white;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:10px;
+}
+
+.goal-top{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:10px;
+}
+
+.goal-name{
+  font-weight:bold;
+}
+
+.goal-percent{
+  color:#16a34a;
+  font-weight:bold;
+}
+
+.progress{
+  height:8px;
+  background:#e5e7eb;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.progress-bar{
+  height:100%;
+  background:#16a34a;
+}
+
+.goal-detail{
+  margin-top:8px;
+  font-size:12px;
+  color:#6b7280;
+}
+
+.movement{
+  background:white;
+  border:1px solid #e5e7eb;
+  border-radius:14px;
+  padding:14px;
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:8px;
+}
+
+.movement-name{
+  font-weight:bold;
+  font-size:14px;
+}
+
+.movement-date{
+  color:#9ca3af;
+  font-size:11px;
+  margin-top:3px;
+}
+
+.positive{
+  color:#15803d;
+  font-weight:bold;
+}
+
+.negative{
+  color:#dc2626;
+  font-weight:bold;
+}
+
+.actions{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.action{
+  background:white;
+  border:1px solid #e5e7eb;
+  border-radius:15px;
+  padding:15px 8px;
+  text-align:center;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.action-icon{
+  font-size:22px;
+  margin-bottom:6px;
+}
+
+.footer{
+  text-align:center;
+  padding:30px 20px;
+  color:#9ca3af;
+  font-size:11px;
+}
+
+@media(max-width:600px){
+  .main{padding:16px}
+  .balance-value{font-size:30px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<header class="header">
+  <div class="logo">Fin<span>ova</span></div>
+  <div class="profile">F</div>
+</header>
+
+<main class="main">
+
+<div class="greeting">
+  <h1>Tu panorama financiero</h1>
+  <p>Construye tu patrimonio con inteligencia.</p>
+</div>
+
+<section class="balance">
+  <div class="balance-label">Patrimonio disponible</div>
+  <div class="balance-value">$12.450.000</div>
+  <div class="balance-sub">Balance actual</div>
+</section>
+
+<section class="score">
+  <div>
+    <h2>Finova Score</h2>
+    <p>Tu comportamiento financiero</p>
+  </div>
+  <div class="score-number">78</div>
+</section>
+
+<section class="cards">
+
+<div class="card">
+  <div class="card-label">Ingresos</div>
+  <div class="card-value income">+$4.200.000</div>
+</div>
+
+<div class="card">
+  <div class="card-label">Gastos</div>
+  <div class="card-value expense">-$2.100.000</div>
+</div>
+
+<div class="card">
+  <div class="card-label">Ahorros</div>
+  <div class="card-value saving">$1.400.000</div>
+</div>
+
+<div class="card">
+  <div class="card-label">Inversiones</div>
+  <div class="card-value investment">$3.850.000</div>
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>Evolución financiera</h2>
+
+<div class="chart">
+
+<div class="chart-line">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+
+<div class="months">
+<span>Abr</span>
+<span>May</span>
+<span>Jun</span>
+<span>Jul</span>
+<span>Ago</span>
+<span>Sep</span>
+<span>Oct</span>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>Metas</h2>
+
+<div class="goal">
+
+<div class="goal-top">
+<div class="goal-name">Fondo de emergencia</div>
+<div class="goal-percent">65%</div>
+</div>
+
+<div class="progress">
+<div class="progress-bar" style="width:65%"></div>
+</div>
+
+<div class="goal-detail">
+$3.250.000 de $5.000.000
+</div>
+
+</div>
+
+<div class="goal">
+
+<div class="goal-top">
+<div class="goal-name">Viaje</div>
+<div class="goal-percent">40%</div>
+</div>
+
+<div class="progress">
+<div class="progress-bar" style="width:40%"></div>
+</div>
+
+<div class="goal-detail">
+$800.000 de $2.000.000
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>Movimientos recientes</h2>
+
+<div class="movement">
+<div>
+<div class="movement-name">Salario</div>
+<div class="movement-date">Hoy</div>
+</div>
+<div class="positive">+$4.200.000</div>
+</div>
+
+<div class="movement">
+<div>
+<div class="movement-name">Mercado</div>
+<div class="movement-date">Ayer</div>
+</div>
+<div class="negative">-$320.000</div>
+</div>
+
+<div class="movement">
+<div>
+<div class="movement-name">Ahorro mensual</div>
+<div class="movement-date">28 Sep</div>
+</div>
+<div class="
