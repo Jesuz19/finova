@@ -31,3 +31,24 @@ document.querySelector(".score-number").textContent =
 
 console.log("Finova Engine:", finanzas);
 console.log("Finova Score:", score);
+
+const listaMovimientos = document.querySelectorAll(".movement");
+
+movimientos.forEach((movimiento, index) => {
+  if (listaMovimientos[index]) {
+    const nombre = listaMovimientos[index].querySelector(".movement-name");
+    const valor = listaMovimientos[index].querySelector(".positive, .negative");
+
+    nombre.textContent = movimiento.descripcion;
+
+    const signo = movimiento.tipo === "gasto" ? "-" : "+";
+
+    valor.textContent =
+      signo + formatoPesos(movimiento.valor);
+
+    valor.className =
+      movimiento.tipo === "gasto"
+        ? "negative"
+        : "positive";
+  }
+});
