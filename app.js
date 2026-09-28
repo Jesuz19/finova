@@ -29,7 +29,7 @@ document.querySelector(".investment").textContent =
   formatoPesos(finanzas.inversiones);
 
 document.querySelector(".balance-value").textContent =
-  "$400.000";
+  formatoPesos(finanzas.disponible);
 
 ontent =
   formatoPesos(finanzas.disponible);
