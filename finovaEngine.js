@@ -29,17 +29,19 @@ export function calcularFinanzas(movimientos) {
 
   const disponible = ingresos - gastos - ahorros - inversiones;
 
+const patrimonio = ahorros + inversiones;
+
   const tasaAhorro =
     ingresos > 0
       ? (ahorros / ingresos) * 100
       : 0;
 
   return {
-    ingresos,
-    gastos,
-    ahorros,
-    inversiones,
-    disponible,
-    tasaAhorro
-  };
-}
+  ingresos,
+  gastos,
+  ahorros,
+  inversiones,
+  disponible,
+  patrimonio,
+  tasaAhorro
+};
