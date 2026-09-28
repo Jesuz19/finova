@@ -1,12 +1,7 @@
 import { calcularFinanzas } from "./finovaEngine.js";
 import { calcularFinovaScore } from "./finovaScore.js";
 
-const movimientos = [
-  { tipo: "ingreso", valor: 4200000 },
-  { tipo: "gasto", valor: 2100000 },
-  { tipo: "ahorro", valor: 1400000 },
-  { tipo: "inversion", valor: 300000 }
-];
+import { movimientos } from "./movimientos.js";
 
 const finanzas = calcularFinanzas(movimientos);
 
