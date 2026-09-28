@@ -26,8 +26,6 @@ document.querySelector(".investment").textContent =
 document.querySelector(".balance-value").textContent =
   formatoPesos(finanzas.patrimonio);
 
-document.querySelector(".balance-value").textContent =
-  formatoPesos(finanzas.patrimonio);
 
 document.querySelector(".balance-sub").textContent =
   "Patrimonio: " + formatoPesos(finanzas.patrimonio);
