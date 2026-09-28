@@ -31,9 +31,6 @@ document.querySelector(".investment").textContent =
 document.querySelector(".balance-value").textContent =
   formatoPesos(finanzas.disponible);
 
-ontent =
-  formatoPesos(finanzas.disponible);
-
 document.querySelector(".score-number").textContent =
   score;
 
