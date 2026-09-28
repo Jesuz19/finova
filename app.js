@@ -1,6 +1,5 @@
 import { calcularFinanzas } from "./finovaEngine.js";
 import { calcularFinovaScore } from "./finovaScore.js";
-
 import { movimientos } from "./movimientos.js";
 
 const finanzas = calcularFinanzas(movimientos);
@@ -26,7 +25,6 @@ document.querySelector(".investment").textContent =
 document.querySelector(".balance-value").textContent =
   formatoPesos(finanzas.patrimonio);
 
-
 document.querySelector(".balance-sub").textContent =
   "Patrimonio: " + formatoPesos(finanzas.patrimonio);
 
@@ -40,12 +38,16 @@ const listaMovimientos = document.querySelectorAll(".movement");
 
 movimientos.forEach((movimiento, index) => {
   if (listaMovimientos[index]) {
-    const nombre = listaMovimientos[index].querySelector(".movement-name");
-    const valor = listaMovimientos[index].querySelector(".positive, .negative");
+    const nombre =
+      listaMovimientos[index].querySelector(".movement-name");
+
+    const valor =
+      listaMovimientos[index].querySelector(".positive, .negative");
 
     nombre.textContent = movimiento.descripcion;
 
-    const signo = movimiento.tipo === "gasto" ? "-" : "+";
+    const signo =
+      movimiento.tipo === "gasto" ? "-" : "+";
 
     valor.textContent =
       signo + formatoPesos(movimiento.valor);
