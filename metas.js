@@ -3,7 +3,7 @@
 export const metas = [
   {
     nombre: "Fondo de emergencia",
-    actual: 3250000,
+    actual: 4000000,
     objetivo: 5000000
   },
   {
